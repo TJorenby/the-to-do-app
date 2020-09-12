@@ -6,16 +6,17 @@ TO DO LIST
 
 Front End
     [X] Index.html
-    [] Client.js
-    [] Source in jQuery
-    [] Style Sheet
+    [X] Client.js
+    [X] Source in jQuery
+    [X] Style Sheet
+    [X] Layout Template
 
 Server
     [] Server.js
     [] NPM installs
     
 Database
-    [] To Do Database in Postico
+    [X] To Do Database in Postico
     [] Database.sql
 
 
