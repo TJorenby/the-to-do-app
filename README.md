@@ -12,12 +12,12 @@ Front End
     [X] Layout Template
 
 Server
-    [] Server.js
-    [] NPM installs
+    [X] Server.js
+    [X] NPM installs
     
 Database
     [X] To Do Database in Postico
-    [] Database.sql
+    [X] Database.sql
 
 
 --BUILD OUT--
