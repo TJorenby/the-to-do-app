@@ -2,7 +2,7 @@ Database Name: to_do_app
 
 =========
 
-CREATE TABLE "task_list" (
+CREATE TABLE "task_list" ( dfgfgdfsgsdger
 	"id" SERIAL PRIMARY KEY,
 	"task_type" VARCHAR(10),
 	"task_desc" VARCHAR(100),
