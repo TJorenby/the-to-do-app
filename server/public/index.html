@@ -10,56 +10,69 @@
 </head>
 <body>
     <h1>Task Tracker</h1>
+   <div id="addTask">
+        <h2>Add New Task</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task Type</th>
+                    <th>Task Description</th>
+                    <th>Priority Level</th>
+                    <th>Due Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="taskInputs">
+                <tr>   
+                    <td><select class="taskType">
+                        <option class="Work">Work</option>
+                        <option class="Home">Home</option>
+                        </select> 
+                    </td>            
+                    <td><input type="text" id="taskDesc" placeholder="Description"/></td>
+                    <td><select class="priorityLvl">
+                        <option class="low">Low</option>
+                        <option class="medium">Medium</option>
+                        <option class="high">High</option>
+                        </select>  
+                    </td>
+                    <td>
+                        <input type="date" placeholder="Due Date"/>
+                    </td>
+                    <td>
+                        <td><button id="addTaskBtn">Add Task</button></td>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="taskTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Task Type</th>
+                    <th>Task Description</th>
+                    <th>Priority Level</th>
+                    <th>Due Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>WORK</td>
+                    <td>COPY TPS REPORT</td>
+                    <td>LOW</td>
+                    <td>09-01-2020</td>
+                    <td><button id="completeBtn">Task Complete!</button></td>
+                    <td><button id="deleteBtn">Remove Task</button></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Task Type</th>
-                <th>Task Description</th>
-                <th>Priority Level</th>
-                <th>Due Date</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="taskTable">
-            <tr>   
-                <td><select class="taskType">
-                    <option class="Work">Work</option>
-                    <option class="Home">Home</option>
-                    </select> 
-                </td>            
-                <td>Take Out Trash</td>
-                <td><select class="priorityLvl">
-                    <option class="low">Low</option>
-                    <option class="medium">Medium</option>
-                    <option class="high">High</option>
-                </td></select>  
-                <td>
-                    <input type="date" placeholder="Due Date"/>
-                </td>
-                <td><button id="completeBtn">Task Complete!</button></td>
-                <td><button id="deleteBtn">Delete</button></td>
-            </tr>
 
-            <tr class ="taskRow">   
-                <td><select class="taskType">
-                    <option class="Work">Work</option>
-                    <option class="Home">Home</option>
-                    </select> 
-                </td>            
-                <td>Take Out Trash</td>
-                <td><select class="priorityLvl">
-                    <option class="low">Low</option>
-                    <option class="medium">Medium</option>
-                    <option class="high">High</option>
-                </td></select>  
-                <td>
-                    <input type="date" placeholder="Due Date"/>
-                </td>
-                <td><button id="completeBtn">Task Complete!</button></td>
-                <td><button id="deleteBtn">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
+    </div>
 </body>
 </html>
+
+
+                
