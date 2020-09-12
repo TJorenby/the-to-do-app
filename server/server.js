@@ -22,7 +22,7 @@ const pool = new Pool({
     idleTimeoutMillis: 20000 // connection timeout in MS
 }); //end pool set up
 
-//get tasklist from db
+//GET tasklist from db
 app.get('/tasks', (req, res)=>{
     const queryString = 'SELECT * FROM "task_list";';
     pool.query(queryString).then(results =>{
@@ -33,6 +33,21 @@ app.get('/tasks', (req, res)=>{
     }) // end query
 
 });
+
+//POST new task to db
+app.post('/tasks', (req,res)=>{
+    console.log('in /tasks POST:', req.body);
+    const queryString = `INSERT INTO "task_list" ("task_type", "task_desc", "priority_lvl", "due_date")
+    VALUES ($1, $2, $3, $4);`;
+    
+    pool.query(queryString, [req.body.task_type, req.body.task_desc, req.body.priority_lvl, req.body.due_date]).then(results =>{
+        res.sendStatus(201);
+    }).catch(err =>{
+        console.log(err);
+        res.sendStatus(500);
+    })
+});
+
 
 // Start Up the Server
 app.listen(port, function(){
