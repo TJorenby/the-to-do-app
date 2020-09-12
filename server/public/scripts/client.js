@@ -44,8 +44,26 @@ function onDeleteBtn(){
   console.log('in onDeleteBtn');
 }
 
+// change complete status to true in DB
 function onCompleteBtn(){
-  console.log('in onCompleteBtn');
+  let taskId = $(this).data('id');
+  let taskUpdate = {
+    completeStatus: true
+  }
+  console.log('in onCompleteBtn',taskId);
+  
+  $.ajax({
+    method: 'PUT',
+    url: `/tasks/${taskId}`,
+    data: taskUpdate
+  }).then(function(response){
+    console.log('back from onCompleteBtn PUT with:', response);
+  }).catch(function(err){
+    alert('PUT error!');
+    console.log(err);
+  });
+
+  // TO DO toggleClass for CSS on DOM
 }
 
 function onAddTaskBtn(){
@@ -77,3 +95,5 @@ function resetInputs(){
   $('#priorityLvlIn').val('Low'),
   $('#dueDateIn').val('')
 }
+
+

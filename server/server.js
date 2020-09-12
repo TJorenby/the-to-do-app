@@ -49,6 +49,30 @@ app.post('/tasks', (req,res)=>{
 });
 
 
+// PUT is_complete status to TRUE
+app.put('/tasks/:id', (req, res)=>{
+    let taskId = req.params.id;
+    let queryString =``;
+    console.log("params:", taskId, req.body);
+
+    if (req.body.completeStatus === true){
+        queryString = `UPDATE "task_list" SET "is_complete" ='T' WHERE "id" = $1;`;
+    }
+    else {
+        console.log('failed to execute change');
+    }
+    pool.query(queryString, [taskId])
+        .then(result =>{
+            console.log('Result from PUT:', result);
+            res.sendStatus(200);
+        })
+        .catch(err =>{
+            console.log('Error updating PUT', err);
+            res.sendStatus(500);
+        });
+});
+
+
 // Start Up the Server
 app.listen(port, function(){
     console.log('Im Listening on:', port);
