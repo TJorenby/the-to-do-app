@@ -5,7 +5,7 @@ TO DO LIST
 ---SETUP---
 
 Front End
-    [] Index.html
+    [X] Index.html
     [] Client.js
     [] Source in jQuery
     [] Style Sheet
