@@ -3,11 +3,14 @@ $(document).ready(onReady);
 function onReady(){
   console.log('JQ');
   clickEventListeners();
-  //getTaskList();
+  getTaskList();
 }
 
 function clickEventListeners(){
   console.log('in clickEventListeners');
+  $(document).on('click', '.deleteBtn', onDeleteBtn);
+  $(document).on('click', '.completeBtn', onCompleteBtn);
+  $(document).on('click', '#addTaskBtn', onAddTaskBtn);
 }
 
 function getTaskList(){
@@ -17,32 +20,34 @@ function getTaskList(){
     url: '/tasks'
   }).then(function(response){
     console.log('back from GET with:', response);
-    let el = $('#taskTable');
+    let el = $('#taskList');
     el.empty();
     for (let i in response){
       el.append(`
-      <tr class ="taskRow">   
-                <td><select class="taskType">
-                    <option class="Work">Work</option>
-                    <option class="Home">Home</option>
-                    </select> 
-                </td>            
-                <td>${response[i].task_desc}</td>
-                <td><select class="priorityLvl">
-                    <option class="low">Low</option>
-                    <option class="medium">Medium</option>
-                    <option class="high">High</option>
-                </td></select>  
-                <td>
-                    <input type="date" placeholder="Due Date"/>
-                </td>
-                <td><button id="completeBtn" data-id=${response[i].id}>Task Complete!</button></td>
-                <td><button id="deleteBtn" data-id=${response[i].id}>Delete</button></td>
-            </tr>
+      <tr>
+        <td>${response[i].task_type}</td>
+        <td>${response[i].task_desc}</td>
+        <td>${response[i].priority_lvl}</td>
+        <td>${response[i].due_date.split('T')[0]}</td>
+        <td><button class="completeBtn" data-id=${response[i].id}>Task Complete!</button></td>
+        <td><button class="deleteBtn" data-id=${response[i].id}>Delete Task</button></td>           
+      </tr>
       `);
     }
   }).catch(function(err){
     alert('error! could not get data');
     console.log(err);
   })
+}
+
+function onDeleteBtn(){
+  console.log('in onDeleteBtn');
+}
+
+function onCompleteBtn(){
+  console.log('in onCompleteBtn');
+}
+
+function onAddTaskBtn(){
+  console.log('in onAddTaskBtn');
 }
