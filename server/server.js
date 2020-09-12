@@ -37,10 +37,10 @@ app.get('/tasks', (req, res)=>{
 //POST new task to db
 app.post('/tasks', (req,res)=>{
     console.log('in /tasks POST:', req.body);
-    const queryString = `INSERT INTO "task_list" ("task_type", "task_desc", "priority_lvl", "due_date")
-    VALUES ($1, $2, $3, $4);`;
+    const queryString = `INSERT INTO "task_list" ("task_type", "task_desc", "priority_lvl", "due_date", "is_complete")
+    VALUES ($1, $2, $3, $4, $5);`;
     
-    pool.query(queryString, [req.body.task_type, req.body.task_desc, req.body.priority_lvl, req.body.due_date]).then(results =>{
+    pool.query(queryString, [req.body.task_type, req.body.task_desc, req.body.priority_lvl, req.body.due_date, req.body.is_complete]).then(results =>{
         res.sendStatus(201);
     }).catch(err =>{
         console.log(err);

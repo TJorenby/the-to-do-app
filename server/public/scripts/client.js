@@ -54,7 +54,8 @@ function onAddTaskBtn(){
     task_type:$('#taskTypeIn').val() ,
     task_desc:$('#taskDescIn').val(),
     priority_lvl:$('#priorityLvlIn').val(),
-    due_date:$('#dueDateIn').val()
+    due_date:$('#dueDateIn').val(),
+    is_complete: false
   }
   $.ajax({
     method: 'POST',

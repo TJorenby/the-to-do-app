@@ -22,11 +22,25 @@ Database
 
 --BUILD OUT--
     Index.html
-        [] Allow user to create a task (input fields)
-            [] Complete Button
+        [X] Allow user to create a task (input fields)
+            [X] Input Fields and Add Task Button
+            [X] Complete Button
                 [] Background container changes colors (greys out and italicized font? - CSS Toggle)
-            [] Delete Button
+            [X] Delete Button
                 [] Needs to remove Task from DOM as well as database
+--FUNCTION REQUIREMENTS--
+
+[X] Task List in Database needs to append to DOM
+[X] Option to Add Task
+[X] New Task Needs to Append to DOM and get added to Database
+[] Task Complete Button
+    [] Stylisically Change on DOM
+    [] Mark as Complete in Database (is_complete === true)
+[] Delete Button
+    [] Task removes from DOM
+    [] Task removes from DB    
+
+
 
 --STYLING REQUIREMENTS--
 
