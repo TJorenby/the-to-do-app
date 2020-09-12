@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./vendors/jquery-3.5.1.min.js"></script>
+    <script src="./scripts/client.js"></script>
+</head>
+<body>
+    <h1>Task Tracker</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Task Type</th>
+                <th>Task Description</th>
+                <th>Priority Level</th>
+                <th>Due Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="taskTable">
+            <tr>   
+                <td><select class="taskType">
+                    <option class="Work">Work</option>
+                    <option class="Home">Home</option>
+                    </select> 
+                </td>            
+                <td>Take Out Trash</td>
+                <td><select class="priorityLvl">
+                    <option class="low">Low</option>
+                    <option class="medium">Medium</option>
+                    <option class="high">High</option>
+                </td></select>  
+                <td>
+                    <input type="date" placeholder="Due Date"/>
+                </td>
+                <td><button id="completeBtn">Task Complete!</button></td>
+                <td><button id="deleteBtn">Delete</button></td>
+            </tr>
+
+            <tr class ="taskRow">   
+                <td><select class="taskType">
+                    <option class="Work">Work</option>
+                    <option class="Home">Home</option>
+                    </select> 
+                </td>            
+                <td>Take Out Trash</td>
+                <td><select class="priorityLvl">
+                    <option class="low">Low</option>
+                    <option class="medium">Medium</option>
+                    <option class="high">High</option>
+                </td></select>  
+                <td>
+                    <input type="date" placeholder="Due Date"/>
+                </td>
+                <td><button id="completeBtn">Task Complete!</button></td>
+                <td><button id="deleteBtn">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

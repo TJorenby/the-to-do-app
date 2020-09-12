@@ -5,18 +5,19 @@ TO DO LIST
 ---SETUP---
 
 Front End
-    [] Index.html
-    [] Client.js
-    [] Source in jQuery
-    [] Style Sheet
+    [X] Index.html
+    [X] Client.js
+    [X] Source in jQuery
+    [X] Style Sheet
+    [X] Layout Template
 
 Server
-    [] Server.js
-    [] NPM installs
+    [X] Server.js
+    [X] NPM installs
     
 Database
-    [] To Do Database in Postico
-    [] Database.sql
+    [X] To Do Database in Postico
+    [X] Database.sql
 
 
 --BUILD OUT--

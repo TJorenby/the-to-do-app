@@ -1,0 +1,26 @@
+{
+  "name": "the-to-do-app",
+  "version": "1.0.0",
+  "description": "TO DO LIST",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TJorenby/the-to-do-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TJorenby/the-to-do-app/issues"
+  },
+  "homepage": "https://github.com/TJorenby/the-to-do-app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pg": "^8.3.3"
+  }
+}
