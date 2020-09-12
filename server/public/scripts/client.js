@@ -63,8 +63,16 @@ function onAddTaskBtn(){
   }).then(function(response){
     console.log('back from POST with:', response);
     getTaskList();
+    resetInputs();
   }).catch(function(err){
     alert('error! Unable to post to Database');
     console.log(err);
   })
+}
+
+function resetInputs(){
+  $('#taskTypeIn').val('Work'),
+  $('#taskDescIn').val(''),
+  $('#priorityLvlIn').val('Low'),
+  $('#dueDateIn').val('')
 }
