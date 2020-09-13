@@ -25,10 +25,10 @@ Database
         [X] Allow user to create a task (input fields)
             [X] Input Fields and Add Task Button
             [X] Complete Button
-                [] Background container changes colors (greys out and italicized font? - CSS Toggle)
+                
                 
             [X] Delete Button
-                [] Needs to remove Task from DOM as well as database
+                [X] Needs to remove Task from DOM as well as database
 
 --FUNCTION REQUIREMENTS--
 
@@ -39,9 +39,9 @@ Database
     [] Stylisically Change on DOM
     [X] Mark as Complete in Database (is_complete === true)
     [X] Button toggles between T and F in order for client to "undo" mark complete 
-[] Delete Button
-    [] Task removes from DOM
-    [] Task removes from DB    
+[X] Delete Button
+    [X] Task removes from DOM
+    [X] Task removes from DB    
 
 
 
@@ -50,6 +50,15 @@ Database
     [] Background color of page
     [] Font family and size
     [] Completed Task styling
+        [] Task Complete Btn changes to "undo complete"
+        [] Background container changes colors (greys out and italicized font? - CSS Toggle)
+
 
 --STRETCH GOALS--
-    TBD
+    [] Git practice - Merge to master using --no-ff
+    [] Styling using Bootstrap on 'feature-styling-bootstrap' branch
+    [] Confirm Delete alert using Bootstrap on branch 'feature-confirm-delete'
+    [] Sort tasks by priority level and have the option to reverse on branch feature-ordering-task-query
+    [] Add "date completed" field when is_complete === true. on branch 'feature-time-completed'
+
+

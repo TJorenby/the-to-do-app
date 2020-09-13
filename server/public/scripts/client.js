@@ -25,7 +25,7 @@ function getTaskList(){
     for (let i in response){
       console.log(`completeStatus is: ${response[i].is_complete}`);
       el.append(`
-      <tr>
+      <tr class="task">
         <td>${response[i].task_type}</td>
         <td>${response[i].task_desc}</td>
         <td>${response[i].priority_lvl}</td>
@@ -80,9 +80,11 @@ function onCompleteBtn(){
     alert('PUT error!');
     console.log(err);
   });
-  getTaskList();
+  taskCompleteClass();
+  //getTaskList();
 
   // TO DO toggleClass for CSS on DOM
+  
 }
 
 function onAddTaskBtn(){
@@ -115,3 +117,10 @@ function resetInputs(){
   $('#dueDateIn').val('')
 }
 
+function taskCompleteClass(){
+  console.log ('in taskCompleteClass');
+  let taskStatus = $(this).data('status');
+  if (taskStatus === 'true'){
+    $(this).toggleClass("taskComplete");
+  }
+}
