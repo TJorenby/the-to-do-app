@@ -1,5 +1,4 @@
 body{
-    background-color: lightsalmon;
 }
 
 .taskComplete{
@@ -7,5 +6,18 @@ body{
 }
 
 .task{
-    background-color:lightgrey;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+.Low{
+    background-color: lightgray;
+}
+
+.Medium {
+    background-color:lightgoldenrodyellow;
+}
+
+.High{
+    background-color:lightpink;
+}
+
