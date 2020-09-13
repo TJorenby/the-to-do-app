@@ -2,7 +2,9 @@ body{
 }
 
 .taskComplete{
-    background-color: greenyellow;
+    background-color: darkgrey;
+    font-style: italic;
+    font-color: lightblue;
 }
 
 .task{
@@ -10,7 +12,7 @@ body{
 }
 
 .Low{
-    background-color: lightgray;
+    background-color: lightskyblue;
 }
 
 .Medium {
@@ -19,5 +21,9 @@ body{
 
 .High{
     background-color:lightpink;
+}
+
+.test{
+    background-color:lightsalmon;
 }
 

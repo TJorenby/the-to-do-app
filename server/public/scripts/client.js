@@ -24,24 +24,42 @@ function getTaskList(){
     el.empty();
     for (let i in response){
       console.log(`completeStatus is: ${response[i].is_complete}`);
+
+      // Determines if the class needs to be based on priority lvl or complete status
+      let tableRow;
+      if (response[i].is_complete === false){
+        tableRow = `<tr class="${response[i].priority_lvl}">`;
+      }
+      else{
+        tableRow = `<tr class="taskComplete">`;
+      }
+
+      //
+      let completeBtnTxt;
+      if (response[i].is_complete === false){
+        completeBtnTxt = 'Mark Complete'
+      }
+      else{
+        completeBtnTxt = 'Undo'
+      }
+
       el.append(`
-      <tr class="${response[i].priority_lvl}">
+        ${tableRow}
         <td>${response[i].task_type}</td>
         <td>${response[i].task_desc}</td>
         <td>${response[i].priority_lvl}</td>
         <td>${response[i].due_date.split('T')[0]}</td>
-        <td><button type="button" class="completeBtn btn btn-outline-success btn-hover" data-id=${response[i].id} data-status=${response[i].is_complete}>Task Complete!</button></td>
-        <td><button type="button" class="deleteBtn btn btn-outline-dark" data-id=${response[i].id}>Delete Task</button></td>         
+        <td><button type="button" class="completeBtn btn btn-light" data-id=${response[i].id} data-status=${response[i].is_complete}>${completeBtnTxt}</button></td>
+        <td><button type="button" class="deleteBtn btn btn-light" data-id=${response[i].id}>Delete Task</button></td>         
       </tr>
       `);
-      //priorityLvlColor(response[i].priority_lvl);
     }
   }).catch(function(err){
     alert('error! could not get data');
     console.log(err);
   })
 }
-//data-toggle="button" aria-pressed="false"
+
 
 function onDeleteBtn(){
   console.log('in onDeleteBtn');
@@ -82,10 +100,11 @@ function onCompleteBtn(){
     alert('PUT error!');
     console.log(err);
   });
-  taskCompleteClass();
+  
   getTaskList();
 
   // TO DO toggleClass for CSS on DOM
+  
   
 }
 
@@ -119,17 +138,3 @@ function resetInputs(){
   $('#dueDateIn').val('')
 }
 
-function taskCompleteClass(){
-  console.log ('in taskCompleteClass');
-  let taskStatus = $(this).data('status');
-  if (taskStatus === 'true'){
-    $(this).toggleClass('taskComplete');
-  }
-}// THIS IS NOT WORKING YET
-
-/*function priorityLvlColor(priorityLvl){
-  console.log ('inpriorityLvlColor');
-    if(priorityLvl === 'low'){
-
-    }
-}*/
