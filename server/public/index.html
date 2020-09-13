@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Tracker</title>
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./vendors/jquery-3.5.1.min.js"></script>
+    <script src="./vendors/bootstrap.min.js"></script>
     <script src="./scripts/client.js"></script>
 </head>
 <body>
     <h1>Task Tracker</h1>
-   <div id="addTask">
+   <div id="addTask" class="container">
         <h2>Add New Task</h2>
         <table>
             <thead>
@@ -40,14 +42,14 @@
                         <input type="date" id="dueDateIn" placeholder="Due Date"/>
                     </td>
                     <td>
-                        <td><button id="addTaskBtn">Add Task</button></td>
+                        <td><button id="addTaskBtn" class="btn btn-primary">Add Task</button></td>
                     </td> 
                 </tr>
             </tbody>
         </table>
     </div>
-    <div id="taskTable">
-        <table>
+    <div id="taskTable" class="container-fluid">
+        <table class="row">
             <thead>
                 <tr>
                     <th>Task Type</th>

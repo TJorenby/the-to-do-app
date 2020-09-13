@@ -20,6 +20,7 @@
   "homepage": "https://github.com/TJorenby/the-to-do-app#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootstrap": "^3.4.1",
     "express": "^4.17.1",
     "pg": "^8.3.3"
   }

@@ -4,6 +4,7 @@ const app = express(); // the server
 const bodyParser =require('body-parser'); // for reading JSON
 const pg =require('pg'); // pulls in pg for connecting to db
 
+
 // uses
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));

@@ -123,4 +123,4 @@ function taskCompleteClass(){
   if (taskStatus === 'true'){
     $(this).toggleClass("taskComplete");
   }
-}
+}// THIS IS NOT WORKING YET
