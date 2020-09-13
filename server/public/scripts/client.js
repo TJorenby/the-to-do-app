@@ -52,7 +52,7 @@ function onCompleteBtn(){
   let taskUpdate = {
     completeStatus: taskStatus
   }
-  getTaskList();
+  
   console.log('taskStatus is:', taskStatus);
   console.log('taskId is:', taskId);
   console.log ('task update is:', taskUpdate);
@@ -67,7 +67,7 @@ function onCompleteBtn(){
     alert('PUT error!');
     console.log(err);
   });
-
+  getTaskList();
 
   // TO DO toggleClass for CSS on DOM
 }
