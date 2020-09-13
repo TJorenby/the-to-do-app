@@ -75,6 +75,22 @@ app.put('/tasks/:id', (req, res)=>{
         });
 });
 
+// DELETE task from db and DOM
+
+app.delete('/tasks/:id', (req, res)=>{
+    let taskId = req.params.id;
+    const queryString = `DELETE FROM "task_list" WHERE "id" = $1;`;
+    console.log('DELETING task with id=', taskId);
+    pool.query(queryString, [taskId])
+        .then((response)=>{
+            console.log('Deleted!');
+            res.sendStatus(200);
+        })
+        .catch((err)=>{
+            console.log('Error deleted record', err);
+            res.sendStatus(500);
+        })
+});
 
 // Start Up the Server
 app.listen(port, function(){

@@ -43,7 +43,20 @@ function getTaskList(){
 
 function onDeleteBtn(){
   console.log('in onDeleteBtn');
-}
+  let taskId = $(this).data('id');
+  $.ajax({
+    method: 'DELETE',
+    url: `/tasks/${taskId}`,
+  }).then(function(response){
+    console.log('task DELETED:', response);
+    getTaskList();
+  }).catch(function(err){
+    alert('DELETE error!');
+    console.log(err);
+  });
+  
+
+}// end onDeleteBtn
 
 // change complete status to true in DB
 function onCompleteBtn(){
@@ -101,3 +114,4 @@ function resetInputs(){
   $('#priorityLvlIn').val('Low'),
   $('#dueDateIn').val('')
 }
+

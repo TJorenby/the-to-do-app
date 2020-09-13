@@ -26,8 +26,10 @@ Database
             [X] Input Fields and Add Task Button
             [X] Complete Button
                 [] Background container changes colors (greys out and italicized font? - CSS Toggle)
+                
             [X] Delete Button
                 [] Needs to remove Task from DOM as well as database
+
 --FUNCTION REQUIREMENTS--
 
 [X] Task List in Database needs to append to DOM
@@ -35,7 +37,8 @@ Database
 [X] New Task Needs to Append to DOM and get added to Database
 [] Task Complete Button
     [] Stylisically Change on DOM
-    [] Mark as Complete in Database (is_complete === true)
+    [X] Mark as Complete in Database (is_complete === true)
+    [X] Button toggles between T and F in order for client to "undo" mark complete 
 [] Delete Button
     [] Task removes from DOM
     [] Task removes from DB    
