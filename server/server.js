@@ -55,7 +55,10 @@ app.put('/tasks/:id', (req, res)=>{
     let queryString =``;
     console.log("params:", taskId, req.body);
 
-    if (req.body.completeStatus === true){
+    if (req.body.completeStatus === 'true'){
+        queryString = `UPDATE "task_list" SET "is_complete" ='F' WHERE "id" = $1;`;
+    }
+    else if (req.body.completeStatus === 'false'){
         queryString = `UPDATE "task_list" SET "is_complete" ='T' WHERE "id" = $1;`;
     }
     else {

@@ -23,13 +23,14 @@ function getTaskList(){
     let el = $('#taskList');
     el.empty();
     for (let i in response){
+      console.log(`completeStatus is: ${response[i].is_complete}`);
       el.append(`
       <tr>
         <td>${response[i].task_type}</td>
         <td>${response[i].task_desc}</td>
         <td>${response[i].priority_lvl}</td>
         <td>${response[i].due_date.split('T')[0]}</td>
-        <td><button class="completeBtn" data-id=${response[i].id}>Task Complete!</button></td>
+        <td><button class="completeBtn" data-id=${response[i].id} data-status=${response[i].is_complete}>Task Complete!</button></td>
         <td><button class="deleteBtn" data-id=${response[i].id}>Delete Task</button></td>           
       </tr>
       `);
@@ -47,11 +48,15 @@ function onDeleteBtn(){
 // change complete status to true in DB
 function onCompleteBtn(){
   let taskId = $(this).data('id');
+  let taskStatus = $(this).data('status');
   let taskUpdate = {
-    completeStatus: true
+    completeStatus: taskStatus
   }
+  getTaskList();
+  console.log('taskStatus is:', taskStatus);
+  console.log('taskId is:', taskId);
+  console.log ('task update is:', taskUpdate);
   console.log('in onCompleteBtn',taskId);
-  
   $.ajax({
     method: 'PUT',
     url: `/tasks/${taskId}`,
@@ -62,6 +67,7 @@ function onCompleteBtn(){
     alert('PUT error!');
     console.log(err);
   });
+
 
   // TO DO toggleClass for CSS on DOM
 }
@@ -95,5 +101,3 @@ function resetInputs(){
   $('#priorityLvlIn').val('Low'),
   $('#dueDateIn').val('')
 }
-
-
