@@ -71,16 +71,34 @@ function getTaskList(){
 function onDeleteBtn(){
   console.log('in onDeleteBtn');
   let taskId = $(this).data('id');
-  $.ajax({
-    method: 'DELETE',
-    url: `/tasks/${taskId}`,
-  }).then(function(response){
-    console.log('task DELETED:', response);
-    getTaskList();
-  }).catch(function(err){
-    alert('DELETE error!');
-    console.log(err);
-  });
+  swal({
+    title: "Are you sure?",
+    text: "This task will be deleted forever",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then(deleteConfirmed => {
+    if (deleteConfirmed) {
+      $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${taskId}`,
+      }).then(function(response){
+        console.log('task DELETED:', response);
+        getTaskList();
+      }).catch(function(err){
+        alert('DELETE error!');
+        console.log(err);
+      });
+      swal("Task Deleted!", {
+        icon: "success",
+      });
+    } else {
+      swal("Task will stay on your list!");
+    }
+  }
+  );
+  
 }// end onDeleteBtn
 
 // change complete status to true in DB
@@ -141,4 +159,21 @@ function resetInputs(){
   $('#dueDateIn').val('')
 }
 
-
+function deletePrompt(){
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this imaginary file!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((deleteConfirmed) => {
+    if (deleteConfirmed) {
+      swal("Poof! Your imaginary file has been deleted!", {
+        icon: "success",
+      });
+    } else {
+      swal("Your imaginary file is safe!");
+    }
+  });
+}

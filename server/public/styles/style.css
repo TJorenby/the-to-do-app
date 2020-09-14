@@ -23,15 +23,15 @@ body{
 }
 
 .Low{
-    background-color: rgba(114, 170, 114, 0.767);
+    background-color: rgba(155, 251, 155, 0.767);
 }
 
 .Medium {
-    background-color:lightgoldenrodyellow;
+    background-color:rgba(251, 247, 126, 0.767);
 }
 
 .High{
-    background-color:lightpink;
+    background-color:rgba(250, 167, 167, 0.767);
 }
 
 
