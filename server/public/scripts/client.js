@@ -42,7 +42,7 @@ function getTaskList(){
       // determines what text should be displayed on the complete btn
       let completeBtn;
       if (response[i].is_complete === false){
-        completeBtn = `<button type="button" class="completeBtn btn btn-light" data-id=${response[i].id} data-status=${response[i].is_complete}>Complete</button>`
+        completeBtn = `<button type="button" class="completeBtn btn btn-outline-success" data-id=${response[i].id} data-status=${response[i].is_complete}>Complete</button>`
       }
       else{
         completeBtn = 'Completed';
@@ -57,7 +57,7 @@ function getTaskList(){
 
        <td>${completeBtn}</td>
 
-        <td><button type="button" class="deleteBtn btn btn-light" data-id=${response[i].id}>Delete Task</button></td>         
+        <td><button type="button" class="deleteBtn btn btn-outline-danger" data-id=${response[i].id}>Delete Task</button></td>         
       </tr>
       `);
     }// end for loop
