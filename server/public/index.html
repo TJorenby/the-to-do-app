@@ -9,13 +9,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./vendors/jquery-3.5.1.min.js"></script>
-    <script src="./vendors/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--<script src="./vendors/bootstrap.min.js"></script>-->
     <script src="./scripts/client.js"></script>
 </head>
 <body>
-    <h1>Task Tracker</h1>
-   <div id="addTask" class="container">
-        <h2>Add New Task</h2>
+    <div class="header container-fluid">
+        <h1>To Do Tracker</h1>
+    </div>
+    <div id="addTask" class="container">
+        <h4>Add New Task</h4>
         <table class="table table-borderless">
             <thead>
                 <tr>
@@ -26,7 +29,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody id="taskInputs">
+            <tbody class="taskInputs">
                 <tr>   
                     <td><select id="taskTypeIn">
                         <option id="Work">Work</option>
@@ -44,7 +47,7 @@
                         <input type="date" id="dueDateIn" placeholder="Due Date"/>
                     </td>
                     <td>
-                        <td><button id="addTaskBtn" class="btn btn-primary">Add Task</button></td>
+                        <td><button id="addTaskBtn" class="btn btn-info">Add Task</button></td>
                     </td> 
                 </tr>
             </tbody>
@@ -58,14 +61,13 @@
                 <th scope="col">Task Description</th>
                 <th scope="col">Priority Level</th>
                 <th scope="col">Due Date</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody id="taskList">
             </tbody>
           </table>
-
     </div>
 </body>
 </html>

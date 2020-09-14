@@ -14,18 +14,17 @@ port = 5000;
 
 // db setup
 const Pool = pg.Pool;
-// configure connection to db
 const pool = new Pool({
-    database:"to_do_app", // db name (NOT table name)
-    host:"localhost", // default when running locally, will change when deploying
-    port: 5432, // default port for local, also will change when deployed
-    max: 12, // max # of connections
-    idleTimeoutMillis: 20000 // connection timeout in MS
+    database:"weekend-to-do-app", 
+    host:"localhost", 
+    port: 5432, 
+    max: 12, 
+    idleTimeoutMillis: 20000 
 }); //end pool set up
 
 //GET tasklist from db
 app.get('/tasks', (req, res)=>{
-    const queryString = 'SELECT * FROM "task_list";';
+    const queryString = 'SELECT * FROM "task_list" ORDER BY "due_date" ASC;';
     pool.query(queryString).then(results =>{
         res.send(results.rows);
     }).catch( (err)=>{
@@ -50,7 +49,7 @@ app.post('/tasks', (req,res)=>{
 });
 
 
-// PUT is_complete status to TRUE
+// PUT is_complete toggle status
 app.put('/tasks/:id', (req, res)=>{
     let taskId = req.params.id;
     let queryString =``;
@@ -77,7 +76,6 @@ app.put('/tasks/:id', (req, res)=>{
 });
 
 // DELETE task from db and DOM
-
 app.delete('/tasks/:id', (req, res)=>{
     let taskId = req.params.id;
     const queryString = `DELETE FROM "task_list" WHERE "id" = $1;`;

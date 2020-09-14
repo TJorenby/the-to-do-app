@@ -6,6 +6,11 @@ function onReady(){
   getTaskList();
 }
 
+//Globals
+
+
+
+//holds click event listeners
 function clickEventListeners(){
   console.log('in clickEventListeners');
   $(document).on('click', '.deleteBtn', onDeleteBtn);
@@ -34,13 +39,13 @@ function getTaskList(){
         tableRow = `<tr class="taskComplete">`;
       }
 
-      //
-      let completeBtnTxt;
+      // determines what text should be displayed on the complete btn
+      let completeBtn;
       if (response[i].is_complete === false){
-        completeBtnTxt = 'Mark Complete'
+        completeBtn = `<button type="button" class="completeBtn btn btn-light" data-id=${response[i].id} data-status=${response[i].is_complete}>Complete</button>`
       }
       else{
-        completeBtnTxt = 'Undo'
+        completeBtn = 'Completed';
       }
 
       el.append(`
@@ -49,11 +54,13 @@ function getTaskList(){
         <td>${response[i].task_desc}</td>
         <td>${response[i].priority_lvl}</td>
         <td>${response[i].due_date.split('T')[0]}</td>
-        <td><button type="button" class="completeBtn btn btn-light" data-id=${response[i].id} data-status=${response[i].is_complete}>${completeBtnTxt}</button></td>
+
+       <td>${completeBtn}</td>
+
         <td><button type="button" class="deleteBtn btn btn-light" data-id=${response[i].id}>Delete Task</button></td>         
       </tr>
       `);
-    }
+    }// end for loop
   }).catch(function(err){
     alert('error! could not get data');
     console.log(err);
@@ -74,8 +81,6 @@ function onDeleteBtn(){
     alert('DELETE error!');
     console.log(err);
   });
-  
-
 }// end onDeleteBtn
 
 // change complete status to true in DB
@@ -86,28 +91,25 @@ function onCompleteBtn(){
     completeStatus: taskStatus
   }
   
-  console.log('taskStatus is:', taskStatus);
+  /*console.log('taskStatus is:', taskStatus);
   console.log('taskId is:', taskId);
   console.log ('task update is:', taskUpdate);
-  console.log('in onCompleteBtn',taskId);
+  console.log('in onCompleteBtn',taskId);*/
   $.ajax({
     method: 'PUT',
     url: `/tasks/${taskId}`,
     data: taskUpdate
   }).then(function(response){
     console.log('back from onCompleteBtn PUT with:', response);
+    getTaskList();
   }).catch(function(err){
     alert('PUT error!');
     console.log(err);
   });
-  
-  getTaskList();
 
-  // TO DO toggleClass for CSS on DOM
-  
-  
 }
 
+// add new task to db
 function onAddTaskBtn(){
   console.log('in onAddTaskBtn');
   let taskToSend ={
@@ -131,10 +133,12 @@ function onAddTaskBtn(){
   })
 }
 
+//reset inputs
 function resetInputs(){
   $('#taskTypeIn').val('Work'),
   $('#taskDescIn').val(''),
   $('#priorityLvlIn').val('Low'),
   $('#dueDateIn').val('')
 }
+
 

@@ -1,10 +1,21 @@
 body{
+    background-color: rgba(125, 169, 187, 0.342);
+}
+
+.header {
+    text-align: center;
+    margin: 50px;
+
+}
+
+.taskInputs{
+    background-color: rgba(109, 101, 93, 0.404);
 }
 
 .taskComplete{
     background-color: darkgrey;
     font-style: italic;
-    font-color: lightblue;
+    text-color: lightblue;
 }
 
 .task{
@@ -12,7 +23,7 @@ body{
 }
 
 .Low{
-    background-color: lightskyblue;
+    background-color: rgba(114, 170, 114, 0.767);
 }
 
 .Medium {
@@ -23,7 +34,4 @@ body{
     background-color:lightpink;
 }
 
-.test{
-    background-color:lightsalmon;
-}
 
