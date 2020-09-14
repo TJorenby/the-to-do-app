@@ -50,15 +50,15 @@ function getTaskList(){
 
       el.append(`
         ${tableRow}
-        <td>${response[i].task_type}</td>
-        <td>${response[i].task_desc}</td>
-        <td>${response[i].priority_lvl}</td>
-        <td>${response[i].due_date.split('T')[0]}</td>
+            <td>${response[i].task_type}</td>
+            <td>${response[i].task_desc}</td>
+            <td>${response[i].priority_lvl}</td>
+            <td>${response[i].due_date.split('T')[0]}</td>
 
-       <td>${completeBtn}</td>
+            <td>${completeBtn}</td>
 
-        <td><button type="button" class="deleteBtn btn btn-outline-danger" data-id=${response[i].id}>Delete Task</button></td>         
-      </tr>
+            <td><button type="button" class="deleteBtn btn btn-outline-danger" data-id=${response[i].id}>Delete Task</button></td>         
+        </tr>
       `);
     }// end for loop
   }).catch(function(err){
@@ -71,6 +71,8 @@ function getTaskList(){
 function onDeleteBtn(){
   console.log('in onDeleteBtn');
   let taskId = $(this).data('id');
+  
+  // This wraps the Ajax call in an alert prompt that allows you to move forward with the delete or cancel the request
   swal({
     title: "Are you sure?",
     text: "This task will be deleted forever",
@@ -78,7 +80,7 @@ function onDeleteBtn(){
     buttons: true,
     dangerMode: true,
   })
-  .then(deleteConfirmed => {
+  .then(function deleteConfirmed(){
     if (deleteConfirmed) {
       $.ajax({
         method: 'DELETE',
@@ -159,21 +161,3 @@ function resetInputs(){
   $('#dueDateIn').val('')
 }
 
-function deletePrompt(){
-  swal({
-    title: "Are you sure?",
-    text: "Once deleted, you will not be able to recover this imaginary file!",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then((deleteConfirmed) => {
-    if (deleteConfirmed) {
-      swal("Poof! Your imaginary file has been deleted!", {
-        icon: "success",
-      });
-    } else {
-      swal("Your imaginary file is safe!");
-    }
-  });
-}
