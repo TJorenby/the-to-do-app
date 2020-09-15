@@ -1,64 +1,37 @@
 # the-to-do-app
 
-TO DO LIST
+## Description
 
----SETUP---
+_Duration:_Weekend Project
 
-Front End
-    [X] Index.html
-    [X] Client.js
-    [X] Source in jQuery
-    [X] Style Sheet
-    [X] Layout Template
+This is a basic ToDo list, where a user can make a checklist of things to do, mark them as complete, and delete entries as needed. 
 
-Server
-    [X] Server.js
-    [X] NPM installs
+In building this app, I practiced skills for full stack integration, connecting a jQuery-powered front-end through a node server to a SQL database. 
+
+## Prerequisites 
+
+To run this app, you will need:
+    -Node.js
+    -Postgres
     
-Database
-    [X] To Do Database in Postico
-    [X] Database.sql
+## Install
 
+To run this application:
 
---BUILD OUT--
-    Index.html
-        [X] Allow user to create a task (input fields)
-            [X] Input Fields and Add Task Button
-            [X] Complete Button
-                
-                
-            [X] Delete Button
-                [X] Needs to remove Task from DOM as well as database
+    - Create a database in Postgres called `weekend-to-do-app`
+    - Execute the SQL commands from `database.sql`
+    - Run `npm install` from the project root directory
+    - Run `npm start` to run the node server
+    - Open `http://localhost:5000` in your browser
 
---FUNCTION REQUIREMENTS--
+## Usage
 
-[X] Task List in Database needs to append to DOM
-[X] Option to Add Task
-[X] New Task Needs to Append to DOM and get added to Database
-[X] Task Complete Button
-    [X] Stylisically Change on DOM
-    [X] Mark as Complete in Database (is_complete === true)
-    [X] Button toggles between T and F in order for client to "undo" mark complete 
-[X] Delete Button
-    [X] Task removes from DOM
-    [X] Task removes from DB    
+Select Task Criteria and click 'Add Task' to create new task
+Click 'Complete' to mark task as complete
+Click 'Delete Task' to remove task from the list
 
+## Screenshots
 
-
---STYLING REQUIREMENTS--
-
-    [X] Background color of page
-    [X] Font family and size
-    [X] Completed Task styling
-        [X] Task Complete Btn changes to "undo complete"
-        [X] Background container changes colors (greys out and italicized font? - CSS Toggle)
-
-
---STRETCH GOALS--
-    [X] Git practice - Merge to master using --no-ff
-    [X] Styling using Bootstrap on 'feature-styling-bootstrap' branch
-    [] Confirm Delete alert using Bootstrap on branch 'feature-confirm-delete'
-    [] Sort tasks by priority level and have the option to reverse on branch feature-ordering-task-query
-    [] Add "date completed" field when is_complete === true. on branch 'feature-time-completed'
-
-
+![screenshot](./app-screenshot.png)
+ -or-
+![demo](./app-demo.gif)

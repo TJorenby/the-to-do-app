@@ -10,17 +10,24 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 // globals
-port = 5000;
+port = process.env.PORT || 3000;
 
 // db setup
-const Pool = pg.Pool;
-const pool = new Pool({
-    database:"weekend-to-do-app", 
-    host:"localhost", 
-    port: 5432, 
-    max: 12, 
-    idleTimeoutMillis: 20000 
-}); //end pool set up
+let pool;
+if(process.env.DATABASE_URL) {
+    console.log('connecting to heroku db');
+    pool = new pg.Pool({
+    connectionString:process.env.DATABASE_URL
+    })
+
+} 
+
+else {
+    console.log('running locally');
+    pool = new pg.Pool({
+        database: "db name goes here"
+    });
+}//end pool set up
 
 //GET tasklist from db
 app.get('/tasks', (req, res)=>{
