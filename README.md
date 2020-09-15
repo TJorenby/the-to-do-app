@@ -22,7 +22,7 @@ To run this application:
     - Execute the SQL commands from `database.sql`
     - Run `npm install` from the project root directory
     - Run `npm start` to run the node server
-    - Open `http://localhost:5000` in your browser
+    - Open `http://localhost:3000` in your browser
 
 ## Usage
 
@@ -30,8 +30,6 @@ Select Task Criteria and click 'Add Task' to create new task
 Click 'Complete' to mark task as complete
 Click 'Delete Task' to remove task from the list
 
-## Screenshots
+## Demo
 
-![screenshot](./app-screenshot.png)
- -or-
-![demo](./app-demo.gif)
+![demo](./meida/demo.gif)
