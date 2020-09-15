@@ -32,4 +32,4 @@ Click 'Delete Task' to remove task from the list
 
 ## Demo
 
-![demo](./meida/demo.gif)
+![demo](./media/demo.gif)
